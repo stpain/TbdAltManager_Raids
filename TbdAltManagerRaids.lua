@@ -552,7 +552,7 @@ function TbdAltManagerInstancesMixin:OnLoad()
                     frame.Label:SetText(_G["EXPANSION_NAME"..(i-1)])
                     frame:HookScript("OnMouseUp", function()
                         self:LoadExpansionInstances(tierData)
-                        TbdAltsManager.Api.SelectModule("Instances")
+                        TbdAltsManager.Api.SelectModule("Raids")
                     end)
                 end,
             }
