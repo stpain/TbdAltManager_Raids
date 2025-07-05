@@ -1,0 +1,176 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+https://raw.githubusercontent.com/Meorawr/wow-ui-schema/main/UI.xsd">
+
+    <Frame name="TbdAltManagerInstancesCharacterListItemTemplate" mixin="TbdAltManagerInstancesCharacterListItemMixin" virtual="true">
+        <Layers>
+            <Layer level="OVERLAY">
+                <FontString parentKey="Label" inherits="GameFontNormal" justifyH="CENTER">
+                    <Anchors>
+                        <Anchor point="CENTER" x="0" y="0"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+    </Frame>
+
+    <Frame name="TbdAltManagerInstancesMenuChildTemplate" mixin="TbdAltManagerInstancesMenuChildMixin" virtual="true">
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="Background" atlas="UI-LFG-DividerLine" alpha="1">
+                    <Size y="2"/>
+                    <Anchors>
+                        <Anchor point="BOTTOMLEFT" x="-2" y="0"/>					
+                        <Anchor point="BOTTOMRIGHT" x="0" y="0"/>					
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="HIGHLIGHT">
+                <Texture parentKey="Highlight" atlas="uitools-row-background-hover">
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="1" y="-1"/>					
+                        <Anchor point="BOTTOMRIGHT" x="-1" y="1"/>					
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+                <FontString parentKey="Label" inherits="GameFontWhite">
+                    <Anchors>
+                        <Anchor point="LEFT" x="0" y="0"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+    </Frame>
+
+
+    <Frame name="TbdAltManagerInstanceLockoutTemplate" mixin="TbdAltManagerInstanceLockoutMixin" virtual="true">
+        <Size x="254" y="536"/>
+        <Layers>
+            <Layer level="ARTWORK">
+                <Texture parentKey="Art">
+                    <Size x="254" y="140"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" y="-10"/>
+                    </Anchors>
+                    <TexCoords left="0" right="0.68359375" top="0" bottom="0.7421875"/>
+                </Texture>
+                <Texture parentKey="DividerRight" atlas="spec-columndivider">
+                    <Size x="4"/>
+                    <Anchors>
+                        <Anchor point="TOPRIGHT" x="2" y="0"/>
+                        <Anchor point="BOTTOMRIGHT" x="2" y="0"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY" textureSubLevel="1">
+                <!-- <Texture parentKey="ArtBorder" atlas="UI-Frame-Neutral-PortraitWider"> -->
+                <Texture parentKey="ArtBorder" atlas="spec-thumbnailborder-on">
+                    <Size x="254" y="140"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" y="-10"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY">
+                <Texture parentKey="NameShader">
+                    <Color r="0.02" g="0.01" b="0.01" a="0.78"/>
+                    <Size x="246" y="23"/>
+                    <Anchors>
+                        <Anchor point="TOP" x="0" y="-120"/>
+                    </Anchors>
+                </Texture>
+            </Layer>
+            <Layer level="OVERLAY" textureSubLevel="2">
+                <FontString parentKey="Label" inherits="GameFontWhite">
+                    <Size x="254" y="20"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="0" y="-120"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <Frames>
+            <Frame parentKey="CharacterList" inherits="TBDTreeviewTemplate">
+                <Size x="250"/>
+                <Anchors>
+                    <Anchor point="TOP" x="0" y="-160"/>
+                    <Anchor point="BOTTOM" x="0" y="10"/>
+                </Anchors>
+                <KeyValues>
+                    <KeyValue key="itemTemplate" value="TbdAltManagerInstancesCharacterListItemTemplate" type="string"/>
+                    <KeyValue key="elementHeight" value="24" type="number"/>
+                </KeyValues>
+            </Frame>
+        </Frames>
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+        </Scripts>
+    </Frame>
+
+
+    <Frame name="TbdAltManagerInstancesUi" mixin="TbdAltManagerInstancesMixin">
+
+        <Layers>
+            <Layer level="BACKGROUND">
+                <Texture parentKey="background" setAllPoints="true">
+
+                </Texture>
+            </Layer>
+        </Layers>
+
+        <Frames>
+            <Button parentKey="ScrollLeft">
+                <Anchors>
+                    <Anchor point="TOPLEFT" x="1" y="-44"/>
+                </Anchors>
+                <Size x="36" y="52"/>
+                <NormalTexture atlas="CovenantSanctum-Renown-Arrow"/>
+                <HighlightTexture atlas="CovenantSanctum-Renown-Arrow-Hover"/>
+                <PushedTexture atlas="CovenantSanctum-Renown-Arrow-Depressed"/>
+            </Button>
+            <Button parentKey="ScrollRight">
+                <Anchors>
+                    <Anchor point="TOPRIGHT" x="-1" y="-44"/>
+                </Anchors>
+                <Size x="36" y="52"/>
+                <NormalTexture atlas="CovenantSanctum-Renown-Arrow">
+                    <TexCoords left="1" right="0" top="0" bottom="1"/>
+                </NormalTexture>
+                <HighlightTexture atlas="CovenantSanctum-Renown-Arrow-Hover">
+                    <TexCoords left="1" right="0" top="0" bottom="1"/>
+                </HighlightTexture>
+                <PushedTexture atlas="CovenantSanctum-Renown-Arrow-Depressed">
+                    <TexCoords left="1" right="0" top="0" bottom="1"/>
+                </PushedTexture>
+            </Button>
+            <Frame parentKey="InstanceContainer1" parentArray="InstanceContainers" inherits="TbdAltManagerInstanceLockoutTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" x="31" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame parentKey="InstanceContainer2" parentArray="InstanceContainers" inherits="TbdAltManagerInstanceLockoutTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativePoint="RIGHT" relativeKey="$parent.InstanceContainer1" x="1" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame parentKey="InstanceContainer3" parentArray="InstanceContainers" inherits="TbdAltManagerInstanceLockoutTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativePoint="RIGHT" relativeKey="$parent.InstanceContainer2" x="1" y="0"/>
+                </Anchors>
+            </Frame>
+            <Frame parentKey="InstanceContainer4" parentArray="InstanceContainers" inherits="TbdAltManagerInstanceLockoutTemplate">
+                <Anchors>
+                    <Anchor point="LEFT" relativePoint="RIGHT" relativeKey="$parent.InstanceContainer3" x="1" y="0"/>
+                </Anchors>
+            </Frame>
+        </Frames>
+
+        <Scripts>
+            <OnLoad method="OnLoad"/>
+            <OnShow method="OnShow"/>
+        </Scripts>
+    </Frame>
+
+
+</Ui>

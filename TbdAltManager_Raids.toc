@@ -1,0 +1,11 @@
+## Name: TbdAltManagerRaids
+## Version: 0.121
+## Interface: 100000
+## Notes: Character module for TbdAltManager
+## SavedVariables: TbdAltManager_Instances_SavedVariables
+## Dependencies: TbdAltManager, TbdWidgets
+## Group: TbdAltManager
+
+
+TbdAltManagerRaids.lua
+TbdAltManagerRaids.xml
